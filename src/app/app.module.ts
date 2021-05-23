@@ -7,18 +7,28 @@ import { AppComponent } from './app.component';
 import { ArticuloComponent } from './components/articulo/articulo.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ArticuloDetailComponent } from './components/articulo-detail/articulo-detail.component';
+import { ListaArticuloAdminComponent } from './components/lista-articulo-admin/lista-articulo-admin.component';
+import { UserLoginComponent } from './components/user-login/user-login.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticuloComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    ArticuloDetailComponent,
+    ListaArticuloAdminComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MDBBootstrapModule.forRoot(),
+    AppRoutingModule
 
   ],
   providers: [],

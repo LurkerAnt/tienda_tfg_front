@@ -1,7 +1,7 @@
 import { precio } from "./precio";
 
 export interface Articulo{
-    _id?: string
+    _id?: any 
     nombre: string
     tipo: string
     color: string

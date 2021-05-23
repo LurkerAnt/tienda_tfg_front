@@ -5,7 +5,7 @@ import { Articulo } from 'src/app/models/articulo';
 @Component({
   selector: 'app-articulo',
   templateUrl: './articulo.component.html',
-  styleUrls: ['./articulo.component.css']
+  styleUrls: ['./articulo.component.scss']
 })
 export class ArticuloComponent implements OnInit {
 
