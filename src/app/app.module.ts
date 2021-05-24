@@ -12,6 +12,7 @@ import { ArticuloDetailComponent } from './components/articulo-detail/articulo-d
 import { ListaArticuloAdminComponent } from './components/lista-articulo-admin/lista-articulo-admin.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ArticuloFormComponent } from './components/forms/articulo-form/articulo-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent,
     ArticuloDetailComponent,
     ListaArticuloAdminComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    ArticuloFormComponent
   ],
   imports: [
     BrowserModule,

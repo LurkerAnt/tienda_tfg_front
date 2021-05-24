@@ -1,0 +1,39 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-stipped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Color</th>
+                        <th>Url</th>
+                        <th>Existencias</th>
+                        <th>Precio</th>
+                        <th>Oferta</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let articulo of articuloService.articulos">
+                    <td>{{articulo.nombre}}</td>
+                    <td>{{articulo.tipo}}</td>
+                    <td>{{articulo.color}}</td>
+                    <td>{{articulo.url}}</td>
+                    <td>{{articulo.existencias}}</td>
+                    <td>{{articulo.precio.$numberDecimal}}</td>
+                    <td>{{articulo.oferta}}</td>
+                    <td>
+                        <div>
+                            <button class="btn btn-warning btn-sm" (click)="editArticulo(articulo)">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteArticulo(articulo._id)">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

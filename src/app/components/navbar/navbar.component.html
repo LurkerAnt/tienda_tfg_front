@@ -7,10 +7,13 @@
         <a class="navbar-brand" href="#">La tienda chachi</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a [routerLink]="['/events']" class="nav-link" href="#">Productos</a>
+                <a [routerLink]="['/articulos']" class="nav-link" href="#">Productos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Crear Producto</a>
+                <a [routerLink]="['/articulos/new']" class="nav-link" href="#">Crear Producto</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['/admin/listaArticulos']" class="nav-link" href="#">Modificar Productos</a>
             </li>
         </ul>
 
@@ -19,7 +22,7 @@
                 <a  class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
             </li>
             <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
+                <a [routerLink]="['/login']" class="nav-link" href="#"><i class="fas fa-user"></i></a>
             </li>
         </ul>
 
