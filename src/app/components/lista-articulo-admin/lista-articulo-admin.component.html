@@ -1,6 +1,73 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-4 mt-1">
+            <div class="card">
+                <div class="card-body">
+                    <form #articuloForm="ngForm">
+                        <h3>
+                            Registro de Articulos
+                        </h3>
+                        <input type="hidden" name="_id" [(ngModel)]="articuloService.formArticulo._id">
+
+                        <mdb-form-control>
+                            <input mdbInput type="text" id="nombre" class="form-control" name="nombre" [(ngModel)]="articuloService.formArticulo.nombre" />
+                            <label mdbLabel class="form-label" for="nombre">Nombre</label>
+                        </mdb-form-control>
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="text" id="tipo" class="form-control" name="tipo" [(ngModel)]="articuloService.formArticulo.tipo" />
+                            <label mdbLabel class="form-label" for="tipo">Tipo</label>
+                        </mdb-form-control>
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="text" id="color" class="form-control" name="color" [(ngModel)]="articuloService.formArticulo.color" />
+                            <label mdbLabel class="form-label" for="color">Color</label>
+                        </mdb-form-control>
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="text" id="url" class="form-control" name="url" [(ngModel)]="articuloService.formArticulo.url" />
+                            <label mdbLabel class="form-label" for="url">Url</label>
+                        </mdb-form-control>
+                        <!--
+                            <br>
+                            <mdb-form-control>
+                                <input mdbInput type="text" id="existencias" class="form-control" name="existencias" [(ngModel)]="articuloService.formArticulo.existencias" />
+                                <label mdbLabel class="form-label" for="existencias">Existencias</label>
+                            </mdb-form-control>
+                        -->
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="number" id="precio" class="form-control" name="precio" [(ngModel)]="articuloService.formArticulo.precio" />
+                            <label mdbLabel class="form-label" for="precio">Precio</label>
+                        </mdb-form-control>
+                        <br>
+                        <div class="form-check">
+                            <input mdbCheckbox  type="checkbox" id="existencias" class="form-check-input" [checked]="true" name="existencias" [(ngModel)]="articuloService.formArticulo.existencias" />
+                            <label class="form-check-label" for="existencias">Existencias</label>
+                        </div>
+                        <div class="form-check">
+                            <input mdbCheckbox  type="checkbox" id="oferta" class="form-check-input" [checked]="true" name="oferta" [(ngModel)]="articuloService.formArticulo.oferta" />
+                            <label class="form-check-label" for="oferta">Oferta</label>
+                        </div>
+                        
+                        <div class="mt-2 p-2">
+                            <button class="btn btn-success m-1" (click)="addArticulo(articuloForm)">
+                                Enviar
+                            </button>
+                            <button class="btn btn-primary" (click)="resetForm(articuloForm)">
+                                Limpiar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
         <div class="col-md-8">
             <table class="table table-stipped">
                 <thead>
