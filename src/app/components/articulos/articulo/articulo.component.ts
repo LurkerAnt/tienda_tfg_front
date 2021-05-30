@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticuloService } from '../../services/articulo.service';
+import { ArticuloService } from '../../../services/articulo.service';
 import { NgForm } from '@angular/forms';
 import { Articulo } from 'src/app/models/articulo';
 @Component({
