@@ -15,6 +15,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { MdbFormsModule } from 'mdb-angular-ui-kit';
 import { CambiarPasswordUserComponent } from './components/forms/cambiar-password-user/cambiar-password-user.component';
 import { UserInfoComponent } from './components/user/user-info/user-info.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { UserInfoComponent } from './components/user/user-info/user-info.compone
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
     MdbFormsModule,
-    IconsModule
+    IconsModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

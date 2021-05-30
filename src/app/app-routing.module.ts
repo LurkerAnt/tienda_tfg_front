@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'register', component: UsuarioFormComponent},
   { path: 'admin/listaArticulos', component: ListaArticuloAdminComponent },
-  { path: 'user-info', component: UserInfoComponent },
+  { path: 'perfil', component: UserInfoComponent },
   { path: 'reset-password', component: CambiarPasswordUserComponent }, 
   { path: 'articulos/:_id', component: ArticuloDetailComponent },
   { path: 'articulos', component: ArticuloComponent },
