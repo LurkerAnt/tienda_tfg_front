@@ -15,11 +15,11 @@ export class ArticuloComponent implements OnInit {
     this.getArticulos();
   }
 
-  resetForm(form: NgForm) {
+  resetForm(form: NgForm){
     form.reset();
   }
 
-  getArticulos() {
+  getArticulos(){
     this.articuloService.getArticulos().subscribe(
       res => {
         console.log(res)
@@ -29,40 +29,43 @@ export class ArticuloComponent implements OnInit {
     );
   }
 
-  addArticulo(form: NgForm) {
-    if (form.value.id) {
+  addArticulo(form: NgForm){
+    if(form.value._id){
       console.log('actualizando');
       this.articuloService.updateArticulo(form.value).subscribe(
         res => console.log(res),
         err => console.error(err)
       );
-    } else {
+      this.resetForm(form);
+      this.getArticulos();
+    }
+
+    else{
       this.articuloService.createArticulo(form.value).subscribe(
-        res => {
-          console.log(res)
-          this.getArticulos();
-          form.reset();
-        },
-        err => console.log(err)
-      );
+      res => {
+        console.log(res)
+        this.getArticulos();
+        form.reset();
+      },
+      err => console.log(err)
+    );
     }
   }
 
-  deleteArticulo(id: string) {
-    if (confirm("¿Estás seguro de que quieres borrar este artículo?")) {
+  deleteArticulo(id: string){
+    if(confirm("¿Estás seguro de que quieres borrar este artículo?")){
       this.articuloService.deleteArticulo(id).subscribe(
         (res) => {
           this.getArticulos();
         },
         (err) => console.log(err)
-      );
+       );
+       this.getArticulos();
+      }
     }
+
+    editArticulo(articulo: Articulo) {
+      this.articuloService.formArticulo = articulo;
+    }
+
   }
-
-  editArticulo(articulo: Articulo) {
-    this.articuloService.formArticulo = articulo;
-  }
-
-}
-
-
