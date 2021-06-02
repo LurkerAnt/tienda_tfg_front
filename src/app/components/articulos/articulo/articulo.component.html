@@ -1,7 +1,7 @@
 <mdb-card *ngFor="let articulo of articuloService.articulos">
     <!--Card image-->
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light"[routerLink]="['/admin/listaArticulos']">
-        <img src={{articulo.url}} class="img-fluid" />
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light" [routerLink]="['/admin/listaArticulos']">
+        <img src={{articulo.url}} class="img-fluid" [routerLink]="['/articulos', articulo._id]" />
         <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
         </a>
@@ -26,8 +26,11 @@
         <a class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button">
             Mas Información
         </a>
-        <a class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button">
+        <button type="button btn-primary" class="btn btn-primary" style="background-color: #3b5998;"
+            (click)="_addItemToCart(articulo._id, 1)">
             <i class="fas fa-cart-plus"></i>
-        </a>
+        </button>
+
+
     </mdb-card-body>
 </mdb-card>

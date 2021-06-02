@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticuloService } from '../../../services/articulo.service';
 import { NgForm } from '@angular/forms';
 import { Articulo } from 'src/app/models/articulo';
+import { CarritoService } from 'src/app/services/carrito.service';
 @Component({
   selector: 'app-articulo',
   templateUrl: './articulo.component.html',
@@ -9,7 +10,7 @@ import { Articulo } from 'src/app/models/articulo';
 })
 export class ArticuloComponent implements OnInit {
 
-  constructor(public articuloService: ArticuloService) { }
+  constructor(public articuloService: ArticuloService, private carritoService: CarritoService) { }
 
   ngOnInit(): void {
     this.getArticulos();
@@ -66,6 +67,26 @@ export class ArticuloComponent implements OnInit {
 
     editArticulo(articulo: Articulo) {
       this.articuloService.formArticulo = articulo;
+    }
+
+    //logica del carrito
+
+    products: Array<object> = [];
+    _getProducts(): void {
+      this.carritoService.getAllProducts().subscribe((data: any) => {
+        this.products = data.data;
+        console.log(this.products);
+      });
+    }
+    _addItemToCart( id:any, quantity:number): void {
+      let payload = {
+        productId: id,
+        quantity,
+      };
+      this.carritoService.addToCart(payload).subscribe(() => {
+        this._getProducts();
+        alert('Product Added');
+      });
     }
 
   }
