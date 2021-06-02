@@ -1,1 +1,17 @@
-<p>articulo-detail works!</p>
+<div>
+    <img src={{articulo.url}} class="img-fluid" />
+  
+    <div class="row">
+      <div class="col-md-11">
+        <h2>{{articulo.nombre}}</h2>
+      </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-md-6">
+            <div><strong>Tipo:</strong> {{articulo?.tipo}}</div>
+            <div><strong>Color:</strong> {{articulo?.color}}</div>
+            <div><strong>Precio:</strong> ${{articulo?.precio}}</div>
+        </div>
+    </div>
+  </div>

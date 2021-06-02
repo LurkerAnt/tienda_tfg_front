@@ -25,6 +25,10 @@ URL_API = 'http://localhost:3000/articulos'
   
   constructor(private http: HttpClient) { }
 
+  getArticulo(id:number){
+    return this.articulos?.find(articulo => articulo._id === id);
+  }
+
   getArticulos(){
     return this.http.get<Articulo[]>(this.URL_API); 
   }

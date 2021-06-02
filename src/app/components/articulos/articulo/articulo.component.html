@@ -1,6 +1,6 @@
 <mdb-card *ngFor="let articulo of articuloService.articulos">
     <!--Card image-->
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light"[routerLink]="['/admin/listaArticulos']">
         <img src={{articulo.url}} class="img-fluid" />
         <a href="#!">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
@@ -14,9 +14,14 @@
             <h4>{{articulo.nombre}}</h4>
         </mdb-card-title>
 
-        <!--Text-->
-        <mdb-card-text> Some quick example text to build on the card title and make up the bulk of the card's content.
-        </mdb-card-text>
+        <div class="row">
+            <div class="col-md-6">
+                <div><strong>Tipo:</strong> {{articulo?.tipo}}</div>
+                <div><strong>Color:</strong> {{articulo?.color}}</div>
+                <div><strong>Precio:</strong> ${{articulo?.precio}}</div>
+            </div>
+        </div>
+
 
         <a class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button">
             Mas Información
