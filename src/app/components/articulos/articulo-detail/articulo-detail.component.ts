@@ -12,7 +12,7 @@ export class ArticuloDetailComponent implements OnInit {
   constructor( private articuloService: ArticuloService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.articulo = this.articuloService.getArticulo(+this.route.snapshot.params['_id']
+    this.articulo = this.articuloService.getArticulo(this.route.snapshot.params['_id']
     );
   }
 

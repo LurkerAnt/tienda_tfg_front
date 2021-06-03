@@ -20,6 +20,9 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { Routes, RouterModule, RouterState } from '@angular/router';
+import { UsuarioFormComponent } from './components/forms/usuario-form/usuario-form.component';
+import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-admin/lista-usuario-admin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     UserLoginComponent,
     CambiarPasswordUserComponent,
     UserInfoComponent,
-    CarritoComponent
+    CarritoComponent,
+    CambiarPasswordUserComponent,
+    ListaUsuarioAdminComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,
@@ -43,10 +49,6 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     AppRoutingModule,
     MdbFormsModule,
     IconsModule,
-    BsDropdownModule.forRoot(),
-    TooltipModule.forRoot(),
-    ModalModule.forRoot(),
-    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

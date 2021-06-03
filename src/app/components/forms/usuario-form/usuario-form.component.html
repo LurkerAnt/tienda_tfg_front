@@ -1,5 +1,5 @@
+<div class="container">
 <div class="card">
-
     <h5 class="card-header info-color white-text text-center py-4">
         <strong>Registrarse</strong>
     </h5>
@@ -8,7 +8,7 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form class="text-center" style="color: #757575;">
+        <form #singUpForm="ngForm" class="text-center" style="color: #757575;">
 
             <div class="form-row">
                 <div class="col">
@@ -38,25 +38,22 @@
                 <input type="password" id="materialRegisterFormPassword" class="form-control"
                     aria-describedby="materialRegisterFormPasswordHelpBlock">
                 <label for="materialRegisterFormPassword" class="active">Contraseña</label>
-                <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
-                    At least 8 characters and 1 digit
-                </small>
+
             </div>
 
-            <!-- Phone number -->
+            <!-- Fecha -->
             <div class="md-form">
-                <input type="password" id="materialRegisterFormPhone" class="form-control"
+                <input type="date" id="materialRegisterFormPhone" class="form-control"
                     aria-describedby="materialRegisterFormPhoneHelpBlock">
-                <label for="materialRegisterFormPhone">Teléfono</label>
-                <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                    Optional - for two step authentication
-                </small>
+                <label for="materialRegisterFormPhone">Fecha de Nacimiento</label>
+
             </div>
 
-           
+
             <!-- Sign up button -->
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign
-                in</button>
+            <button 
+                class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" (click)="signUp(singUpForm)">Sign
+                Up</button>
 
             <!-- Social register -->
             <p>or sign up with:</p>
@@ -86,4 +83,5 @@
         <!-- Form -->
 
     </div>
+</div>
 </div>
