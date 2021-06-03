@@ -19,13 +19,13 @@ URL_API = 'http://localhost:3000/articulos'
     color:'',
     url:'',
     existencias:true,
-    precio:[],
+    precio: 0,
     oferta:true
   };
   
   constructor(private http: HttpClient) { }
 
-  getArticulo(id:number){
+  getArticulo(id:string){
     return this.articulos?.find(articulo => articulo._id === id);
   }
 

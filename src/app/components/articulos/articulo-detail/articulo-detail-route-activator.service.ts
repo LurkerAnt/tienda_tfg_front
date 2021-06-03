@@ -9,7 +9,7 @@ export class ArticuloDetailRouteActivator implements CanActivate {
     }
 
     canActivate (route:ActivatedRouteSnapshot){
-        const articuloExists = !!this.articuloService.getArticulo(+route.params['_id'])
+        const articuloExists = !!this.articuloService.getArticulo(route.params['_id'])
         if (!articuloExists) {
             this.router.navigate(['/404'])
         }

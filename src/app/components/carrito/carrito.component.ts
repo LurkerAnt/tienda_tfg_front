@@ -1,38 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import { CarritoService } from 'src/app/services/carrito.service';
+import { ArticuloCarrito, CarritoService } from 'src/app/services/carrito.service';
 @Component({
   selector: 'carrito-component',
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.scss'],
 })
 export class CarritoComponent implements OnInit {
-  carts:any;
-  cartDetails:any;
-  constructor(private http: CarritoService) {}
-  _getCart(): void {
-    this.http.getCartItems().subscribe((data: any) => {
-      this.carts = data.data;
-      // this.cartDetails = data.data;
-      console.log(this.carts);
-    });
+  constructor(
+    private carritoService: CarritoService
+  ) { }
+
+  _increamentQTY(articuloCarrito: ArticuloCarrito, quantity: number): void {
+    articuloCarrito.quantity += quantity;
+    if (articuloCarrito.quantity < 1) {
+      this.carritoService.removeArticulo(articuloCarrito);
+    }
   }
-  _increamentQTY(id:any, quantity:number): void {
-    const payload = {
-      productId: id,
-      quantity,
-    };
-    this.http.increaseQty(payload).subscribe(() => {
-      this._getCart();
-      alert('Product Added');
-    });
-  }
+
   _emptyCart(): void {
-    this.http.emptyCart().subscribe(() => {
-      this._getCart();
-      alert('Cart Emptied');
-    });
+    this.carritoService.articulos.length = 0;
   }
+
   ngOnInit(): void {
-    this._getCart();
+  }
+
+  public get total(): number {
+    if (this.carritoService.articulos.length === 0) {
+      return 0;
+    } 
+    return this.carritoService.articulos
+      .map(({ articulo, quantity }) => articulo.precio * quantity)
+      .reduce((a, b) => a + b);
+  }
+
+  public get articulos(): ArticuloCarrito[] {
+    return this.carritoService.articulos;
   }
 }

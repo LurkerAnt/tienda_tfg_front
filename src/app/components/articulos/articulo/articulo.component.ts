@@ -16,11 +16,11 @@ export class ArticuloComponent implements OnInit {
     this.getArticulos();
   }
 
-  resetForm(form: NgForm){
+  resetForm(form: NgForm) {
     form.reset();
   }
 
-  getArticulos(){
+  getArticulos() {
     this.articuloService.getArticulos().subscribe(
       res => {
         console.log(res)
@@ -30,8 +30,8 @@ export class ArticuloComponent implements OnInit {
     );
   }
 
-  addArticulo(form: NgForm){
-    if(form.value._id){
+  addArticulo(form: NgForm) {
+    if (form.value._id) {
       console.log('actualizando');
       this.articuloService.updateArticulo(form.value).subscribe(
         res => console.log(res),
@@ -41,52 +41,57 @@ export class ArticuloComponent implements OnInit {
       this.getArticulos();
     }
 
-    else{
+    else {
       this.articuloService.createArticulo(form.value).subscribe(
-      res => {
-        console.log(res)
-        this.getArticulos();
-        form.reset();
-      },
-      err => console.log(err)
-    );
+        res => {
+          console.log(res)
+          this.getArticulos();
+          form.reset();
+        },
+        err => console.log(err)
+      );
     }
   }
 
-  deleteArticulo(id: string){
-    if(confirm("¿Estás seguro de que quieres borrar este artículo?")){
+  deleteArticulo(id: string) {
+    if (confirm("¿Estás seguro de que quieres borrar este artículo?")) {
       this.articuloService.deleteArticulo(id).subscribe(
         (res) => {
           this.getArticulos();
         },
         (err) => console.log(err)
-       );
-       this.getArticulos();
-      }
+      );
+      this.getArticulos();
     }
-
-    editArticulo(articulo: Articulo) {
-      this.articuloService.formArticulo = articulo;
-    }
-
-    //logica del carrito
-
-    products: Array<object> = [];
-    _getProducts(): void {
-      this.carritoService.getAllProducts().subscribe((data: any) => {
-        this.products = data.data;
-        console.log(this.products);
-      });
-    }
-    _addItemToCart( id:any, quantity:number): void {
-      let payload = {
-        productId: id,
-        quantity,
-      };
-      this.carritoService.addToCart(payload).subscribe(() => {
-        this._getProducts();
-        alert('Product Added');
-      });
-    }
-
   }
+
+  editArticulo(articulo: Articulo) {
+    this.articuloService.formArticulo = articulo;
+  }
+
+  //logica del carrito
+  addArticuloCarrito(articulo: Articulo, quantity: number) {
+    this.carritoService.articulos.push({ articulo, quantity });
+    console.log('Articulo añadido al carrito')
+  }
+
+
+  products: Array<object> = [];
+  _getProducts(): void {
+    this.carritoService.getAllProducts().subscribe((data: any) => {
+      this.products = data.data;
+      console.log(this.products);
+    });
+  }
+  _addItemToCart(id: any, quantity: number): void {
+    let payload = {
+      productId: id,
+      quantity,
+    };
+    this.carritoService.addToCart(payload).subscribe(() => {
+      this._getProducts();
+      alert('Product Added');
+    });
+  }
+
+}
