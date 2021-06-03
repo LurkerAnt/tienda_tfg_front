@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { UsuarioService } from "../../../services/usuario.service";
+import { NgForm } from "@angular/forms";
+import { Usuario } from "src/app/models/usuario";
+import { AuthService } from "src/app/services/auth.service";
 @Component({
   selector: 'app-usuario-form',
   templateUrl: './usuario-form.component.html',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
   }
+
+
+  signUp(form:NgForm){
+    this.usuarioService.signUp(form.value).subscribe(
+      res=>console.log(res),
+      err=>console.log(err),
+    );
+  }
+
 
 }

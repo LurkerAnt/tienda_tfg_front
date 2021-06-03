@@ -7,6 +7,6 @@ export interface Articulo{
     color: string
     url: string
     existencias: boolean
-    precio: Array<precio> 
+    precio: number 
     oferta: boolean
 }

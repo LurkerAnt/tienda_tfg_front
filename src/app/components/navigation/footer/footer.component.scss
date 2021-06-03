@@ -2,8 +2,9 @@
 .reset-password,
 .user-info,
 .register,
+.productos,
 ._id {
-    position: fixed;
+    /////////position: absolute;
     display: block;
     bottom: 0px;
     left: 0px;
@@ -22,6 +23,10 @@
             }
         }
     }
+}
+footer{
+   
+    bottom: 0px;
 }
 section {
         text-align: center;

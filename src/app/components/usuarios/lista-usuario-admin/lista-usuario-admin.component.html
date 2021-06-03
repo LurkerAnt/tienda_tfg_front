@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mt-1">
+            <div class="card">
+                <div class="card-body">
+                    <form #formUsuario="ngForm">
+                        <h3>
+                            Registro de Usuarios
+                        </h3>
+                        <input type="hidden" name="_id" [(ngModel)]="usuarioService.formUsuario._id">
+
+                        <mdb-form-control>
+                            <input mdbInput type="text" id="nombre" class="form-control" name="nombre"
+                                [(ngModel)]="usuarioService.formUsuario.nombre" />
+                            <label mdbLabel class="form-label" for="nombre">Nombre</label>
+                        </mdb-form-control>
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="text" id="apellido" class="form-control" name="apellido"
+                                [(ngModel)]="usuarioService.formUsuario.apellido" />
+                            <label mdbLabel class="form-label" for="apellido">apellido</label>
+                        </mdb-form-control>
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="email" id="email" class="form-control" name="email"
+                                [(ngModel)]="usuarioService.formUsuario.email" />
+                            <label mdbLabel class="form-label" for="email">email</label>
+                        </mdb-form-control>
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="password" id="password" class="form-control" name="password"
+                                [(ngModel)]="usuarioService.formUsuario.password" />
+                            <label mdbLabel class="form-label" for="password">password</label>
+                        </mdb-form-control>
+                        <!--
+                            <br>
+                            <mdb-form-control>
+                                <input mdbInput type="text" id="existencias" class="form-control" name="existencias" [(ngModel)]="usuarioService.formUsuario.existencias" />
+                                <label mdbLabel class="form-label" for="existencias">Existencias</label>
+                            </mdb-form-control>
+                        -->
+                        <br>
+                        <mdb-form-control>
+                            <input mdbInput type="date" id="fecha" class="form-control" name="fecha"
+                                [(ngModel)]="usuarioService.formUsuario.fecha" />
+                            <label mdbLabel class="form-label" for="fecha">fecha</label>
+                        </mdb-form-control>
+                        <br>
+                        <div class="form-check">
+                            <input mdbCheckbox type="checkbox" id="admin" class="form-check-input"
+                                [checked]="true" name="admin"
+                                [(ngModel)]="usuarioService.formUsuario.admin" />
+                            <label class="form-check-label" for="admin">admin</label>
+                        </div>
+                        
+
+                        <div class="mt-2 p-2">
+                            <button class="btn btn-success m-1" (click)="addUsuario(formUsuario)">
+                                Enviar
+                            </button>
+                            <button class="btn btn-primary" (click)="resetForm(formUsuario)">
+                                Limpiar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-stipped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Color</th>
+                        <th>Url</th>
+                        <th>Existencias</th>
+                        <th>Precio</th>
+                        <th>Oferta</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let usuario of usuarioService.usuarios">
+                    <td>{{usuario.nombre}}</td>
+                    <td>{{usuario.apellido}}</td>
+                    <td>{{usuario.email}}</td>
+                    <td>{{usuario.password}}</td>
+                    <td>{{usuario.fecha}}</td>
+                    <td>{{usuario.admin}}</td>
+                    <td>
+                        <div>
+                            <button class="btn btn-warning btn-sm" (click)="editUsuario(usuario)">
+                                <i class="material-icons">edit</i>
+                            </button>
+                            <button class="btn btn-danger btn-sm" (click)="deleteUsuario(usuario._id)">
+                                <i class="material-icons">delete</i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
