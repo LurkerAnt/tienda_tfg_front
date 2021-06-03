@@ -10,18 +10,32 @@ import { UserInfoComponent } from './components/user/user-info/user-info.compone
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ArticuloDetailRouteActivator } from './components/articulos/articulo-detail/articulo-detail-route-activator.service'
 import { Error404Component } from './errors/404.component';
+import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-admin/lista-usuario-admin.component';
 
 const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'register', component: UsuarioFormComponent },
-  { path: 'admin/listaArticulos', component: ListaArticuloAdminComponent },
   { path: 'perfil', component: UserInfoComponent },
   { path: 'reset-password', component: CambiarPasswordUserComponent },
   { path: 'articulos/:_id', component: ArticuloDetailComponent, canActivate: [ArticuloDetailRouteActivator] },
   { path: 'articulos', component: ArticuloComponent },
   { path: '404', component: Error404Component },
-  { path: '', redirectTo: '/articulos', pathMatch: 'full' }
+  { path: '', redirectTo: '/articulos', pathMatch: 'full' },
+  { path: 'signIn', component: UserLoginComponent },
+  { path: 'signUp', component: UserInfoComponent },
+  { path: 'signup2', component: UsuarioFormComponent },
+  {
+    path: 'admin', children: [
+      { path: 'lista-articulos', component: ListaArticuloAdminComponent },
+      { path: 'lista-usuarios', component: ListaUsuarioAdminComponent },
+    ]
+  },
+  {
+    path: 'user', children: [
+      { path: 'cambiarPassword', component: CambiarPasswordUserComponent }
+    ]
+  }
 ];
 
 

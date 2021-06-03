@@ -24,22 +24,6 @@ import { Routes, RouterModule, RouterState } from '@angular/router';
 import { UsuarioFormComponent } from './components/forms/usuario-form/usuario-form.component';
 import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-admin/lista-usuario-admin.component';
 
-const appRoutes = [
-   { path: 'signIn', component: UserLoginComponent },
-   { path: 'signUp', component: UserInfoComponent },
-   { path: 'signup2', component: UsuarioFormComponent},
-   { path: 'admin', children:[
-     {path:'lista-articulos', component:ListaArticuloAdminComponent},
-     {path:'lista-usuarios', component:ListaUsuarioAdminComponent},
-   ]},
-   {
-     path:'user', children:[
-       {path:'cambiarPassword', component:CambiarPasswordUserComponent}
-
-     ]
-   }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,9 +35,10 @@ const appRoutes = [
     UserLoginComponent,
     CambiarPasswordUserComponent,
     UserInfoComponent,
-    CarritoComponent
+    CarritoComponent,
     CambiarPasswordUserComponent,
-    ListaUsuarioAdminComponent
+    ListaUsuarioAdminComponent,
+    UsuarioFormComponent
   ],
   imports: [
     BrowserModule,
@@ -64,8 +49,6 @@ const appRoutes = [
     AppRoutingModule,
     MdbFormsModule,
     IconsModule,
-    RouterModule.forRoot(appRoutes, {useHash:true},)
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

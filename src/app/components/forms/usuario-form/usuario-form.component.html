@@ -8,7 +8,7 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form  class="text-center" style="color: #757575;">
+        <form #singUpForm="ngForm" class="text-center" style="color: #757575;">
 
             <div class="form-row">
                 <div class="col">
@@ -52,7 +52,7 @@
 
             <!-- Sign up button -->
             <button 
-                class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign
+                class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" (click)="signUp(singUpForm)">Sign
                 Up</button>
 
             <!-- Social register -->

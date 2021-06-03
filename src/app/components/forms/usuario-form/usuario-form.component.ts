@@ -16,11 +16,13 @@ export class UsuarioFormComponent implements OnInit {
   }
 
 
-  signUp(form:NgForm){
-    this.usuarioService.signUp(form.value).subscribe(
-      res=>console.log(res),
-      err=>console.log(err),
-    );
+  async signUp(form:NgForm): Promise<void> {
+    try {
+      const response = await this.usuarioService.signUp(form.value).toPromise();
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
 
