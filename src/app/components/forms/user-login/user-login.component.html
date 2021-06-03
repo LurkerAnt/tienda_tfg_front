@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <!-- Default form login -->
-          <form class="text-center border border-light p-5">
+          <form #loginForm="ngForm" class="text-center border border-light p-5">
 
             <p class="h4 mb-4">Sign in</p>
 
@@ -26,7 +26,7 @@
             </div>
 
             <!-- Sign in button -->
-            <button mdbBtn color="info" class="my-4" type="submit">Sign in</button>
+            <button (click)="signIn(loginForm)" mdbBtn color="info" class="my-4" type="submit">Sign in</button>
 
             <!-- Register -->
             <p>Not a member?

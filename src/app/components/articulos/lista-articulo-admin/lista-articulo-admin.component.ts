@@ -34,11 +34,14 @@ export class ListaArticuloAdminComponent implements OnInit {
     if(form.value._id){
       console.log('actualizando');
       this.articuloService.updateArticulo(form.value).subscribe(
-        res => console.log(res),
-        err => console.error(err)
+        res =>{
+          console.log(res);
+          this.resetForm(form);
+          this.getArticulos();
+        } ,
+        err => console.error(err),      
       );
-      this.resetForm(form);
-      this.getArticulos();
+         
     }
 
     else{

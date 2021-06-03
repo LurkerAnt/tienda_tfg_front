@@ -11,7 +11,7 @@ export class ArticuloService {
 URL_API = 'http://localhost:3000/articulos'
   
  //array de articulos para almacenar la peticion get con todos los datos
-  articulos?: Articulo[];
+  articulos!: Articulo[];
   //objeto que almacena los datos que vienen por el formulario
   formArticulo: Articulo ={
     nombre:'',

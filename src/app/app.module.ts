@@ -20,6 +20,25 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { Routes, RouterModule, RouterState } from '@angular/router';
+import { UsuarioFormComponent } from './components/forms/usuario-form/usuario-form.component';
+import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-admin/lista-usuario-admin.component';
+
+const appRoutes = [
+   { path: 'signIn', component: UserLoginComponent },
+   { path: 'signUp', component: UserInfoComponent },
+   { path: 'signup2', component: UsuarioFormComponent},
+   { path: 'admin', children:[
+     {path:'lista-articulos', component:ListaArticuloAdminComponent},
+     {path:'lista-usuarios', component:ListaUsuarioAdminComponent},
+   ]},
+   {
+     path:'user', children:[
+       {path:'cambiarPassword', component:CambiarPasswordUserComponent}
+
+     ]
+   }
+];
 
 @NgModule({
   declarations: [
@@ -33,6 +52,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     CambiarPasswordUserComponent,
     UserInfoComponent,
     CarritoComponent
+    CambiarPasswordUserComponent,
+    ListaUsuarioAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -43,10 +64,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     AppRoutingModule,
     MdbFormsModule,
     IconsModule,
-    BsDropdownModule.forRoot(),
-    TooltipModule.forRoot(),
-    ModalModule.forRoot(),
-    NgbModule
+    RouterModule.forRoot(appRoutes, {useHash:true},)
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
