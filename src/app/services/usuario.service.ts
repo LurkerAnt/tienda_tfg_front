@@ -26,7 +26,7 @@ formUsuario: Usuario ={
 
 // formulario de registro signUp
   signUpForm: Usuario={
-     nombre:'',
+    nombre:'',
     apellido:'',
     email:'',
     password:'',

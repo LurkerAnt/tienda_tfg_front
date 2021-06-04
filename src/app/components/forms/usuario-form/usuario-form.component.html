@@ -8,34 +8,34 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form #singUpForm="ngForm" class="text-center" style="color: #757575;">
+        <form #signUpForm="ngForm" class="text-center" style="color: #757575;">
 
             <div class="form-row">
                 <div class="col">
                     <!-- First name -->
                     <div class="md-form">
-                        <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                        <input type="text" id="materialRegisterFormFirstName" name="nombre" class="form-control" [(ngModel)]="usuarioService.signUpForm.nombre">
                         <label for="materialRegisterFormFirstName">Nombre</label>
                     </div>
                 </div>
                 <div class="col">
                     <!-- Last name -->
                     <div class="md-form">
-                        <input type="text" id="materialRegisterFormLastName" class="form-control">
-                        <label for="materialRegisterFormLastName">Apellidos</label>
+                        <input type="text" id="materialRegisterFormLastName" name="apellido" class="form-control" [(ngModel)]="usuarioService.signUpForm.apellido">
+                        <label for="materialRegisterFormLastName">Apellido</label>
                     </div>
                 </div>
             </div>
 
             <!-- E-mail -->
             <div class="md-form mt-0">
-                <input type="email" id="materialRegisterFormEmail" class="form-control">
+                <input type="email" id="materialRegisterFormEmail" name="email" class="form-control" [(ngModel)]="usuarioService.signUpForm.email">
                 <label for="materialRegisterFormEmail" class="active">E-mail</label>
             </div>
 
             <!-- Password -->
-            <div class="md-form">
-                <input type="password" id="materialRegisterFormPassword" class="form-control"
+            <div class="md-form"> 
+                <input type="password" id="materialRegisterFormPassword" name="password" class="form-control" [(ngModel)]="usuarioService.signUpForm.password"
                     aria-describedby="materialRegisterFormPasswordHelpBlock">
                 <label for="materialRegisterFormPassword" class="active">Contraseña</label>
 
@@ -43,7 +43,7 @@
 
             <!-- Fecha -->
             <div class="md-form">
-                <input type="date" id="materialRegisterFormPhone" class="form-control"
+                <input type="date" id="materialRegisterFormPhone" name="fecha" class="form-control" [(ngModel)]="usuarioService.signUpForm.fecha"
                     aria-describedby="materialRegisterFormPhoneHelpBlock">
                 <label for="materialRegisterFormPhone">Fecha de Nacimiento</label>
 
@@ -52,7 +52,7 @@
 
             <!-- Sign up button -->
             <button 
-                class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" (click)="signUp(singUpForm)">Sign
+                class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" (click)="signUp(signUpForm)">Sign
                 Up</button>
 
             <!-- Social register -->

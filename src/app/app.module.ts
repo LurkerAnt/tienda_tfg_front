@@ -39,6 +39,7 @@ import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-
     CambiarPasswordUserComponent,
     ListaUsuarioAdminComponent,
     UsuarioFormComponent
+
   ],
   imports: [
     BrowserModule,
