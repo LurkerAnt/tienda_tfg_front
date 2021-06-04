@@ -40,19 +40,19 @@
                             </mdb-form-control>
                         -->
                         <br>
+                        fecha
                         <mdb-form-control>
                             <input mdbInput type="date" id="fecha" class="form-control" name="fecha"
                                 [(ngModel)]="usuarioService.formUsuario.fecha" />
-                            <label mdbLabel class="form-label" for="fecha">fecha</label>
+                            <label mdbLabel class="form-label" for="fecha"></label>
                         </mdb-form-control>
                         <br>
-                        <div class="form-check">
-                            <input mdbCheckbox type="checkbox" id="admin" class="form-check-input"
-                                [checked]="true" name="admin"
+                        <mdb-form-control>
+                            <input mdbInput type="text" id="admin" class="form-control" name="admin"
                                 [(ngModel)]="usuarioService.formUsuario.admin" />
-                            <label class="form-check-label" for="admin">admin</label>
-                        </div>
-                        
+                            <label mdbLabel class="form-label" for="apellido">admin</label>
+                        </mdb-form-control>
+                        <br>
 
                         <div class="mt-2 p-2">
                             <button class="btn btn-success m-1" (click)="addUsuario(formUsuario)">
@@ -76,12 +76,11 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Tipo</th>
-                        <th>Color</th>
-                        <th>Url</th>
-                        <th>Existencias</th>
-                        <th>Precio</th>
-                        <th>Oferta</th>
+                        <th>Apellido</th>
+                        <th>email</th>
+                        <th>password</th>
+                        <th>fecha</th>
+                        <th>admin</th>
                     </tr>
                 </thead>
                 <tr *ngFor="let usuario of usuarioService.usuarios">
