@@ -1,32 +1,37 @@
-
-<div class="container">
+<div class="container p-4">
     <div class="row">
-        <div class="col-md-4 mt-1">
+        <div class="mt-1">
             <div class="card">
                 <div class="card-body">
+
                     <form #articuloForm="ngForm">
                         <h3>
                             Registro de Articulos
                         </h3>
                         <input type="hidden" name="_id" [(ngModel)]="articuloService.formArticulo._id">
 
+                       
                         <mdb-form-control>
-                            <input mdbInput type="text" id="nombre" class="form-control" name="nombre" [(ngModel)]="articuloService.formArticulo.nombre" />
+                            <input mdbInput type="text" id="nombre" class="form-control" name="nombre"
+                                [(ngModel)]="articuloService.formArticulo.nombre" />
                             <label mdbLabel class="form-label" for="nombre">Nombre</label>
                         </mdb-form-control>
                         <br>
                         <mdb-form-control>
-                            <input mdbInput type="text" id="tipo" class="form-control" name="tipo" [(ngModel)]="articuloService.formArticulo.tipo" />
+                            <input mdbInput type="text" id="tipo" class="form-control" name="tipo"
+                                [(ngModel)]="articuloService.formArticulo.tipo" />
                             <label mdbLabel class="form-label" for="tipo">Tipo</label>
                         </mdb-form-control>
                         <br>
                         <mdb-form-control>
-                            <input mdbInput type="text" id="color" class="form-control" name="color" [(ngModel)]="articuloService.formArticulo.color" />
+                            <input mdbInput type="text" id="color" class="form-control" name="color"
+                                [(ngModel)]="articuloService.formArticulo.color" />
                             <label mdbLabel class="form-label" for="color">Color</label>
                         </mdb-form-control>
                         <br>
                         <mdb-form-control>
-                            <input mdbInput type="text" id="url" class="form-control" name="url" [(ngModel)]="articuloService.formArticulo.url" />
+                            <input mdbInput type="text" id="url" class="form-control" name="url"
+                                [(ngModel)]="articuloService.formArticulo.url" />
                             <label mdbLabel class="form-label" for="url">Url</label>
                         </mdb-form-control>
                         <!--
@@ -37,20 +42,24 @@
                             </mdb-form-control>
                         -->
                         <br>
+                        <label class="form-label" for="precio">Precio</label>
                         <mdb-form-control>
-                            <input mdbInput type="number" id="precio" class="form-control" name="precio" [(ngModel)]="articuloService.formArticulo.precio" />
-                            <label mdbLabel class="form-label" for="precio">Precio</label>
+                            <input type="number" id="precio" class="form-control" name="precio" placeholder=""
+                                [(ngModel)]="articuloService.formArticulo.precio" />
                         </mdb-form-control>
                         <br>
                         <div class="form-check">
-                            <input mdbCheckbox  type="checkbox" id="existencias" class="form-check-input" [checked]="true" name="existencias" [(ngModel)]="articuloService.formArticulo.existencias" />
+                            <input mdbCheckbox type="checkbox" id="existencias" class="form-check-input"
+                                [checked]="true" name="existencias"
+                                [(ngModel)]="articuloService.formArticulo.existencias" />
                             <label class="form-check-label" for="existencias">Existencias</label>
                         </div>
                         <div class="form-check">
-                            <input mdbCheckbox  type="checkbox" id="oferta" class="form-check-input" [checked]="true" name="oferta" [(ngModel)]="articuloService.formArticulo.oferta" />
+                            <input mdbCheckbox type="checkbox" id="oferta" class="form-check-input" [checked]="true"
+                                name="oferta" [(ngModel)]="articuloService.formArticulo.oferta" />
                             <label class="form-check-label" for="oferta">Oferta</label>
                         </div>
-                        
+
                         <div class="mt-2 p-2">
                             <button class="btn btn-success m-1" (click)="addArticulo(articuloForm)">
                                 Enviar
@@ -79,6 +88,7 @@
                         <th>Existencias</th>
                         <th>Precio</th>
                         <th>Oferta</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tr *ngFor="let articulo of articuloService.articulos">
@@ -91,10 +101,10 @@
                     <td>{{articulo.oferta}}</td>
                     <td>
                         <div>
-                            <button class="btn btn-warning btn-sm" (click)="editArticulo(articulo)">
+                            <button class="btn btn-warning btn-sm" title="Modificar" (click)="editArticulo(articulo)">
                                 <i class="material-icons">edit</i>
                             </button>
-                            <button class="btn btn-danger btn-sm" (click)="deleteArticulo(articulo._id)">
+                            <button class="btn btn-danger btn-sm" title="Eliminar" (click)="deleteArticulo(articulo._id)">
                                 <i class="material-icons">delete</i>
                             </button>
                         </div>

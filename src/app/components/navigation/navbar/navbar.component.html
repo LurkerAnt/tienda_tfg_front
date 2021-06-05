@@ -6,25 +6,32 @@
         <!-- Navbar brand -->
         <a class="navbar-brand" [routerLink]="['/articulos']">La tienda chachi</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a [routerLink]="['/admin/lista-articulos']" class="nav-link" href="#">Modificar Productos</a>
+
+            <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    Admin<span class="caret"></span>
+                </a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/lista-articulos']">Lista Articulos</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/lista-usuarios']">Lista Usuarios</a>
+                </div>
             </li>
         </ul>
 
-        <ul class="navbar-nav d-flex flex-row me-1">
-            <li class="nav-item me-3 me-lg-0 ">
+        <ul class="navbar-nav d-flex flex-row me-1 ">
+            <li class="nav-item dropdown dropleft pr-3"  dropdown >
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light "
+                    mdbWavesEffect>
+                    <i class="fas fa-user"></i><span class="caret"></span></a>
+                <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary mr-3" role="menu">
+                    <a ngbDropdownItem [routerLink]="['/login']">Log In</a>
+                    <a ngbDropdownItem [routerLink]="['/register']">Register</a>
+                </div>
+            </li>
+            <li class="nav-item me-3 me-lg-0">
                 <a class="nav-link" [routerLink]="['/carrito']"><i class="fas fa-shopping-cart"></i></a>
             </li>
-            <li class="nav-item me-3 me-lg-0 pl-1">
-                <div ngbDropdown class="d-inline-block">
-                    <button class="btn btn-outline-light btn-floating" id="dropdownBasic1" ngbDropdownToggle><i class="fas fa-user"></i></button>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                        <a ngbDropdownItem [routerLink]="['/login']" >Log In</a>
-                        <button ngbDropdownItem [routerLink]="['/register']">Register</button>
-                    </div>
-                </div>
-                <a [routerLink]="['/login']" class="nav-link" href="#"></a>
-            </li>
+
         </ul>
 
     </div>

@@ -19,7 +19,7 @@ URL_API = 'http://localhost:3000/articulos'
     color:'',
     url:'',
     existencias:true,
-    precio: 0,
+    precio: 0 ,
     oferta:true
   };
   
