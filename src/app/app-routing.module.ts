@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: 'articulos/:_id', component: ArticuloDetailComponent, canActivate: [ArticuloDetailRouteActivator] },
   { path: 'articulos', component: ArticuloComponent },
   { path: '404', component: Error404Component },
-  { path: '**', component: Error404Component },
   { path: '', redirectTo: '/articulos', pathMatch: 'full' },
   { path: 'signIn', component: UserLoginComponent },
   { path: 'signUp', component: UsuarioFormComponent },
@@ -37,7 +36,8 @@ const routes: Routes = [
     path: 'user', children: [
       { path: 'cambiarPassword', component: CambiarPasswordUserComponent }
     ]
-  }
+  },
+  { path: '**', component: Error404Component }
 ];
 
 
