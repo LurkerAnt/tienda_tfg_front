@@ -41,6 +41,7 @@ import { SitemapComponent } from './components/navigation/sitemap/sitemap.compon
     ListaUsuarioAdminComponent,
     UsuarioFormComponent,
     SitemapComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -51,6 +52,7 @@ import { SitemapComponent } from './components/navigation/sitemap/sitemap.compon
     AppRoutingModule,
     MdbFormsModule,
     IconsModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
