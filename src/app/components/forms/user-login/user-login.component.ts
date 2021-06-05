@@ -3,6 +3,7 @@ import { UsuarioService } from "../../../services/usuario.service";
 import { NgForm } from "@angular/forms";
 import { Usuario } from "src/app/models/usuario";
 import { AuthService } from 'src/app/services/auth.service';
+import { Router} from '@angular/router';
 @Component({
   selector: "app-user-login",
   templateUrl: "./user-login.component.html",
@@ -10,7 +11,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor(public usuarioService: UsuarioService) { }
+  constructor(public usuarioService: UsuarioService,private authService: AuthService,
+    private router: Router) {
+    
+   }
 
   ngOnInit(): void {
   }
@@ -21,8 +25,9 @@ export class UserLoginComponent implements OnInit {
     this.usuarioService.signIn(form.value).subscribe(
       res=>{
         console.log(res);
-        auth.setLocalStorage;
-        auth.isLoggedIn},
+        localStorage.setItem('token',JSON.stringify(res));
+        this.router.navigate(['/']);
+        },
       err=>console.log(err),
       
     );

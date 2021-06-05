@@ -2,42 +2,46 @@ import { Injectable } from '@angular/core';
 import * as moment from "moment";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
+  constructor() {}
 
-  constructor() { }
+  setLocalStorage(responseObj: any) {
+    // Adds the expiration time defined on the JWT to the current moment
+    const expiresAt = moment().add(
+      Number.parseInt(responseObj.expiresIn),
+      "days"
+    );
 
+    localStorage.setItem("id_token", responseObj.token);
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+  } 
 
-        setLocalStorage(responseObj:any) {
+  logout() {
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
+  }
 
-        // Adds the expiration time defined on the JWT to the current moment
-        const expiresAt = moment().add(Number.parseInt(responseObj.expiresIn), 'days');
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration(), "second");
+  }
 
-        localStorage.setItem('tokenSecreto', responseObj.token);
-        localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
-    }          
+  isLoggedOut() {
+    return !this.isLoggedIn();
+  }
 
-    logout() {
-        localStorage.removeItem("tokenSecreto");
-        localStorage.removeItem("expires_at");
+  getExpiration() {
+    const expiration = localStorage.getItem("expires_at");
+    if (expiration) {
+      const expiresAt = JSON.parse(expiration);
+      return moment(expiresAt);
+    } else {
+      return moment();
     }
-
-    public isLoggedIn() {
-        return moment().isBefore(this.getExpiration(), "second");
-    }
-
-    isLoggedOut() {
-        return !this.isLoggedIn();
-    }
-
-    getExpiration() {
-        const expiration = localStorage.getItem("expires_at");
-        if (expiration) {
-            const expiresAt = JSON.parse(expiration);
-            return moment(expiresAt);
-        } else {
-            return moment();
-        }
-    }    
+  }
+  
+  getToken() {
+    return localStorage.getItem("token");
+  }
 }
