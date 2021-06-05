@@ -11,8 +11,10 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { ArticuloDetailRouteActivator } from './components/articulos/articulo-detail/articulo-detail-route-activator.service'
 import { Error404Component } from './errors/404.component';
 import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-admin/lista-usuario-admin.component';
+import { SitemapComponent } from './components/navigation/sitemap/sitemap.component';
 
 const routes: Routes = [
+  { path: 'sitemap', component: SitemapComponent},
   { path: 'login', component: UserLoginComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'register', component: UsuarioFormComponent },
@@ -21,10 +23,10 @@ const routes: Routes = [
   { path: 'articulos/:_id', component: ArticuloDetailComponent, canActivate: [ArticuloDetailRouteActivator] },
   { path: 'articulos', component: ArticuloComponent },
   { path: '404', component: Error404Component },
+  { path: '**', component: Error404Component },
   { path: '', redirectTo: '/articulos', pathMatch: 'full' },
   { path: 'signIn', component: UserLoginComponent },
-  { path: 'signUp', component: UserInfoComponent },
-  { path: 'signup2', component: UsuarioFormComponent },
+  { path: 'signUp', component: UsuarioFormComponent },
   {
     path: 'admin', children: [
       { path: 'lista-articulos', component: ListaArticuloAdminComponent },

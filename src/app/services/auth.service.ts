@@ -14,12 +14,12 @@ export class AuthService {
         // Adds the expiration time defined on the JWT to the current moment
         const expiresAt = moment().add(Number.parseInt(responseObj.expiresIn), 'days');
 
-        localStorage.setItem('id_token', responseObj.token);
+        localStorage.setItem('tokenSecreto', responseObj.token);
         localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
     }          
 
     logout() {
-        localStorage.removeItem("id_token");
+        localStorage.removeItem("tokenSecreto");
         localStorage.removeItem("expires_at");
     }
 

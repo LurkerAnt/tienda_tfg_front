@@ -23,6 +23,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 import { Routes, RouterModule, RouterState } from '@angular/router';
 import { UsuarioFormComponent } from './components/forms/usuario-form/usuario-form.component';
 import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-admin/lista-usuario-admin.component';
+import { SitemapComponent } from './components/navigation/sitemap/sitemap.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,8 @@ import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-
     CarritoComponent,
     CambiarPasswordUserComponent,
     ListaUsuarioAdminComponent,
-    UsuarioFormComponent
-
+    UsuarioFormComponent,
+    SitemapComponent
   ],
   imports: [
     BrowserModule,
