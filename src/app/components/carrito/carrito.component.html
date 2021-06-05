@@ -1,4 +1,6 @@
+<div *ngIf="!paidFor">
 <section>
+
     <div class="spacer">
       <div class="container">
         <div class="row mt-5">
@@ -34,3 +36,12 @@
       </div>
     </div>
   </section>
+</div> 
+
+<div class="pagado" *ngIf=paidFor>
+  <h5>Gracias por su compra</h5>
+  <img src="https://media1.tenor.com/images/b8d489b921769ee6a12d6024b47a2ba0/tenor.gif?itemid=15364442">
+  <div #paypal></div>
+</div>
+
+<div class="paypal" #paypal></div>

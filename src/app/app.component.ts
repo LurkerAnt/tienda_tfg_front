@@ -12,7 +12,6 @@ export class AppComponent {
 
   }
   ngAfterViewInit(){
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'grey';
-    this.elementRef.nativeElement.ownerDocument.body.style.fontColor = 'white';
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#EAEDED';
  }
 }
