@@ -1,1 +1,44 @@
-<p>sitemap works!</p>
+<h1>Sitemap</h1>
+<div class="container">
+    <ul>
+        <li>
+            <a [routerLink]="['/articulos']">Inicio/Articulos</a>
+        </li>
+        <li>
+            <a [routerLink]="['/articulos/:_id']">Información Articulo</a>
+        </li>
+        <ul>
+            <div>
+                Admin
+            </div>
+            <li>
+                <a [routerLink]="['/admin/lista-articulos']">Lista de Productos</a>
+            </li>
+            <li>
+                <a [routerLink]="['/admin/lista-usuarios']">Lista de Usuarios</a>
+            </li>
+        </ul>
+        <ul>
+            <div>Users</div>
+
+            <li>
+                <a [routerLink]="['/signIn']">Identificarse</a>
+            </li>
+            <li>
+                <a [routerLink]="['/signUp']">Registrarse</a>
+            </li>
+            <li>
+                <a [routerLink]="['/user/cambiarPassword']">Cambio contraseña</a>
+            </li>
+            <li>
+                <a [routerLink]="['/perfil']">Perfil Usuarios</a>
+            </li>
+        </ul>
+        <li>
+            <a [routerLink]="['/carrito']">Carrito</a>
+        </li>
+        <li>
+            <a [routerLink]="['/**']">404</a>
+        </li>
+    </ul>
+</div>

@@ -19,7 +19,6 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent },
   { path: 'register', component: UsuarioFormComponent },
   { path: 'perfil', component: UserInfoComponent },
-  { path: 'reset-password', component: CambiarPasswordUserComponent },
   { path: 'articulos/:_id', component: ArticuloDetailComponent, canActivate: [ArticuloDetailRouteActivator] },
   { path: 'articulos', component: ArticuloComponent },
   { path: '404', component: Error404Component },
