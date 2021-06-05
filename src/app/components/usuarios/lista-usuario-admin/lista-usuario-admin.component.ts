@@ -6,7 +6,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 @Component({
   selector: 'app-lista-usuario-admin',
   templateUrl: './lista-usuario-admin.component.html',
-  styleUrls: ['./lista-usuario-admin.component.css']
+  styleUrls: ['./lista-usuario-admin.component.scss']
 })
 
   export class ListaUsuarioAdminComponent implements OnInit {

@@ -1,58 +1,38 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 mt-1">
-      <div class="card">
-        <div class="card-body">
-          <!-- Default form login -->
-          <form #loginForm="ngForm" class="text-center border border-light p-5">
+  <div class="card">
+    <h5 class="card-header info-color white-text text-center py-4">
+      <strong>Identificarse</strong>
+    </h5>
+    <div class="card-body">
+      <!-- Default form login -->
+      <form #loginForm="ngForm" class="text-center border border-light p-5">
+        <!-- Email -->
+        <input type="email" id="defaultLoginFormEmail" name="email" class="form-control mb-4"
+          [(ngModel)]="usuarioService.signInForm.email" placeholder="E-mail">
 
-            <p class="h4 mb-4">Sign in</p>
+        <!-- Password -->
+        <input type="password" id="defaultLoginFormPassword" name="password" class="form-control mb-4"
+          [(ngModel)]="usuarioService.signInForm.password" placeholder="Password">
 
-            <!-- Email -->
-            <input type="email" id="defaultLoginFormEmail" name="email" class="form-control mb-4" [(ngModel)]="usuarioService.signInForm.email" placeholder="E-mail">
-
-            <!-- Password -->
-            <input type="password" id="defaultLoginFormPassword" name="password" class="form-control mb-4" [(ngModel)]="usuarioService.signInForm.password" placeholder="Password">
-
-            <div class="d-flex justify-content-around">
-              <div>
-                <!-- Remember me -->
-                <mdb-checkbox [default]="true">Remember me</mdb-checkbox>
-              </div>
-              <div>
-                <!-- Forgot password -->
-                <a [routerLink]="['/reset-password']">¿Olvidó su contraseña?</a>
-              </div>
-            </div>
-
-            <!-- Sign in button -->
-            <button (click)="signIn(loginForm)" mdbBtn color="info" class="my-4" type="submit">Sign in</button>
-
-            <!-- Register -->
-            <p>Not a member?
-              <a [routerLink]="['/register']">Register</a>
-            </p>
-
-            <!-- Social login -->
-            <p>or sign in with:</p>
-
-            <a type="button" class="light-blue-text mx-2">
-              <mdb-icon fab icon="facebook"></mdb-icon>
-            </a>
-            <a type="button" class="light-blue-text mx-2">
-              <mdb-icon fab icon="twitter"></mdb-icon>
-            </a>
-            <a type="button" class="light-blue-text mx-2">
-              <mdb-icon fab icon="linkedin"></mdb-icon>
-            </a>
-            <a type="button" class="light-blue-text mx-2">
-              <mdb-icon fab icon="github"></mdb-icon>
-            </a>
-
-          </form>
-          <!-- Default form login -->
+        <div class="d-flex justify-content-around">
+          <div>
+            <!-- Remember me -->
+            <mdb-checkbox [default]="true">Rucuerdame</mdb-checkbox>
+          </div>
+          <div>
+            <!-- Forgot password -->
+            <a [routerLink]="['/reset-password']">¿Olvidó su contraseña?</a>
+          </div>
         </div>
-      </div>
+
+        <!-- Sign in button -->
+        <button (click)="signIn(loginForm)" mdbBtn color="info" class="my-4" type="submit">Identificarse</button>
+
+        <!-- Register -->
+        <p>¿No tiene cuenta?
+          <a [routerLink]="['/register']">Registrese</a>
+        </p>        
+      </form>
     </div>
   </div>
 </div>

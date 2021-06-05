@@ -3,14 +3,13 @@
         <div class="mt-1">
             <div class="card">
                 <div class="card-body">
-
                     <form #articuloForm="ngForm">
                         <h3>
                             Registro de Articulos
                         </h3>
                         <input type="hidden" name="_id" [(ngModel)]="articuloService.formArticulo._id">
 
-                       
+
                         <mdb-form-control>
                             <input mdbInput type="text" id="nombre" class="form-control" name="nombre"
                                 [(ngModel)]="articuloService.formArticulo.nombre" />
@@ -104,7 +103,8 @@
                             <button class="btn btn-warning btn-sm" title="Modificar" (click)="editArticulo(articulo)">
                                 <i class="material-icons">edit</i>
                             </button>
-                            <button class="btn btn-danger btn-sm" title="Eliminar" (click)="deleteArticulo(articulo._id)">
+                            <button class="btn btn-danger btn-sm" title="Eliminar"
+                                (click)="deleteArticulo(articulo._id)">
                                 <i class="material-icons">delete</i>
                             </button>
                         </div>

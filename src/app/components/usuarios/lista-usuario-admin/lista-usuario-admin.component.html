@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container p-4">
     <div class="row">
-        <div class="col-md-4 mt-1">
+        <div class="mt-1">
             <div class="card">
                 <div class="card-body">
                     <form #formUsuario="ngForm">
-                        <h3>
+                        <h3 class="pb-1">
                             Registro de Usuarios
                         </h3>
                         <input type="hidden" name="_id" [(ngModel)]="usuarioService.formUsuario._id">
@@ -18,19 +18,19 @@
                         <mdb-form-control>
                             <input mdbInput type="text" id="apellido" class="form-control" name="apellido"
                                 [(ngModel)]="usuarioService.formUsuario.apellido" />
-                            <label mdbLabel class="form-label" for="apellido">apellido</label>
+                            <label mdbLabel class="form-label" for="apellido">Apellido/s</label>
                         </mdb-form-control>
                         <br>
                         <mdb-form-control>
                             <input mdbInput type="email" id="email" class="form-control" name="email"
                                 [(ngModel)]="usuarioService.formUsuario.email" />
-                            <label mdbLabel class="form-label" for="email">email</label>
+                            <label mdbLabel class="form-label" for="email">E-mail</label>
                         </mdb-form-control>
                         <br>
                         <mdb-form-control>
                             <input mdbInput type="password" id="password" class="form-control" name="password"
                                 [(ngModel)]="usuarioService.formUsuario.password" />
-                            <label mdbLabel class="form-label" for="password">password</label>
+                            <label mdbLabel class="form-label" for="password">Password</label>
                         </mdb-form-control>
                         <!--
                             <br>
@@ -40,17 +40,16 @@
                             </mdb-form-control>
                         -->
                         <br>
-                        fecha
+                        <label mdbLabel class="form-label" for="fecha">Fecha</label>
                         <mdb-form-control>
                             <input mdbInput type="date" id="fecha" class="form-control" name="fecha"
                                 [(ngModel)]="usuarioService.formUsuario.fecha" />
-                            <label mdbLabel class="form-label" for="fecha"></label>
                         </mdb-form-control>
                         <br>
+                        <label mdbLabel class="form-label" for="apellido">Admin</label>
                         <mdb-form-control>
                             <input mdbInput type="text" id="admin" class="form-control" name="admin"
                                 [(ngModel)]="usuarioService.formUsuario.admin" />
-                            <label mdbLabel class="form-label" for="apellido">admin</label>
                         </mdb-form-control>
                         <br>
 
@@ -71,16 +70,16 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-8">
             <table class="table table-stipped">
                 <thead>
                     <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>email</th>
-                        <th>password</th>
-                        <th>fecha</th>
-                        <th>admin</th>
+                        <th>E-mail</th>
+                        <th>Password</th>
+                        <th>Fecha</th>
+                        <th>Admin</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tr *ngFor="let usuario of usuarioService.usuarios">
@@ -88,20 +87,19 @@
                     <td>{{usuario.apellido}}</td>
                     <td>{{usuario.email}}</td>
                     <td>{{usuario.password}}</td>
-                    <td>{{usuario.fecha}}</td>
+                    <td>{{usuario.fecha | date}}</td>
                     <td>{{usuario.admin}}</td>
                     <td>
                         <div>
-                            <button class="btn btn-warning btn-sm" (click)="editUsuario(usuario)">
+                            <button class="btn btn-warning btn-sm" title="Modificar" (click)="editUsuario(usuario)">
                                 <i class="material-icons">edit</i>
                             </button>
-                            <button class="btn btn-danger btn-sm" (click)="deleteUsuario(usuario._id)">
+                            <button class="btn btn-danger btn-sm" title="Eliminar" (click)="deleteUsuario(usuario._id)">
                                 <i class="material-icons">delete</i>
                             </button>
                         </div>
                     </td>
                 </tr>
             </table>
-        </div>
     </div>
 </div>
