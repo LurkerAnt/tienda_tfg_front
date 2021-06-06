@@ -1,6 +1,5 @@
 <div *ngIf="!paidFor">
 <section>
-
     <div class="spacer">
       <div class="container">
         <div class="row mt-5">
@@ -18,15 +17,15 @@
                   <td>{{ articuloCarrito.articulo.nombre }}</td>
                   <td>{{ articuloCarrito.articulo.precio }}</td>
                   <td>
-                    <button class="btn btn-primary btn-sm" style="background-color: #3b5998;" (click)="_increamentQTY(articuloCarrito, 1)">+</button>
+                    <button class="btn btn-primary btn-sm" style="background-color: #3b5998;" (click)="aumentarCantidad(articuloCarrito, 1)">+</button>
                     {{ articuloCarrito.quantity }}
-                    <button class="btn btn-primary btn-sm" style="background-color: #3b5998;" (click)="_increamentQTY(articuloCarrito, -1)">-</button>
+                    <button class="btn btn-primary btn-sm" style="background-color: #3b5998;" (click)="aumentarCantidad(articuloCarrito, -1)">-</button>
                   </td>
                 </tr>
                 <tr>
                   <td colspan="3" align="right">Subtotal :{{ total }}</td>
                   <td colspan="4" align="right">
-                    <button class="btn btn-danger" style="background-color: #3b5998;" (click)="_emptyCart()">Empty Cart</button>
+                    <button class="btn btn-danger" style="background-color: #3b5998;" (click)="vaciarCarrito()">Empty Cart</button>
                   </td>
                 </tr>
               </table>

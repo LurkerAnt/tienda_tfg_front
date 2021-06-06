@@ -24,20 +24,5 @@ export class CarritoService {
       this.articulos.splice(index, 1);
     }
   }
-
-  getAllProducts() {
-    return this.http.get(`${this.URL_API}/product`);
-  }
-  addToCart(payload:any) {
-    return this.http.post(`${this.URL_API}/cart`, payload);
-  }
-  getCartItems() {
-    return this.http.get(`${this.URL_API}/cart`);
-  }
-  increaseQty(payload:any) {
-    return this.http.post(`${this.URL_API}/cart`, payload);
-  }
-  emptyCart() {
-    return this.http.delete(`${this.URL_API}/cart/empty-cart`);
-  } 
+ 
 }

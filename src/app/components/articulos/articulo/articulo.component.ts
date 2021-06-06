@@ -76,22 +76,4 @@ export class ArticuloComponent implements OnInit {
   }
 
 
-  products: Array<object> = [];
-  _getProducts(): void {
-    this.carritoService.getAllProducts().subscribe((data: any) => {
-      this.products = data.data;
-      console.log(this.products);
-    });
-  }
-  _addItemToCart(id: any, quantity: number): void {
-    let payload = {
-      productId: id,
-      quantity,
-    };
-    this.carritoService.addToCart(payload).subscribe(() => {
-      this._getProducts();
-      alert('Product Added');
-    });
-  }
-
 }

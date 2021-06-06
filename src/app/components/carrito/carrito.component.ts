@@ -20,14 +20,14 @@ export class CarritoComponent implements OnInit {
     
   @ViewChild('paypal', { static: true }) paypalElement: ElementRef | undefined;
   
-  _increamentQTY(articuloCarrito: ArticuloCarrito, quantity: number): void {
+  aumentarCantidad(articuloCarrito: ArticuloCarrito, quantity: number): void {
     articuloCarrito.quantity += quantity;
     if (articuloCarrito.quantity < 1) {
       this.carritoService.removeArticulo(articuloCarrito);
     }
   }
 
-  _emptyCart(): void {
+  vaciarCarrito(): void {
     this.carritoService.articulos.length = 0;
   }
 
