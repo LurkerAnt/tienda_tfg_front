@@ -8,12 +8,13 @@ import { ArticuloService } from 'src/app/services/articulo.service';
   styleUrls: ['./articulo-detail.component.scss']
 })
 export class ArticuloDetailComponent implements OnInit {
-  articulo:any;
   constructor( private articuloService: ArticuloService, private route: ActivatedRoute) { }
+  _id:any;
+  articulo:any;
 
   ngOnInit(): void {
-    this.articulo = this.articuloService.getArticulo(this.route.snapshot.params['_id']
-    );
+    this._id = this.route.snapshot.params['_id'];
+    this.articulo=this.articuloService.getArticulo(this._id);
   }
 
 }

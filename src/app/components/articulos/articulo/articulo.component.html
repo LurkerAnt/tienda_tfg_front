@@ -1,8 +1,8 @@
 <mdb-card *ngFor="let articulo of articuloService.articulos">
     <!--Card image-->
-    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light" [routerLink]="['/admin/listaArticulos']">
-        <img src={{articulo.url}} class="img-fluid" [routerLink]="['/articulos', articulo._id]" />
-        <a href="#!">
+    <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+        <img src={{articulo.url}} class="img-fluid"/>
+        <a href="#!" [routerLink]="['/articulos', articulo._id]">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
         </a>
     </div>
@@ -23,7 +23,7 @@
         </div>
 
 
-        <a class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button">
+        <a class="btn btn-primary" style="background-color: #3b5998;" href="#!" [routerLink]="['/articulos', articulo._id]" role="button">
             Mas Información
         </a>
         <button type="button btn-primary" class="btn btn-primary" style="background-color: #3b5998;"

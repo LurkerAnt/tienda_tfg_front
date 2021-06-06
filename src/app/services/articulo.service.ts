@@ -28,6 +28,10 @@ URL_API = 'http://localhost:3000/articulos'
   getArticulo(id:string){
     return this.articulos?.find(articulo => articulo._id === id);
   }
+  getArticuloPorNombre(nombre:string){
+    return this.articulos?.find(articulo => articulo.nombre === nombre);
+  }
+
 
   getArticulos(){
     return this.http.get<Articulo[]>(this.URL_API); 

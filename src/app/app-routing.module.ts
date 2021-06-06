@@ -8,7 +8,6 @@ import { UsuarioFormComponent } from './components/forms/usuario-form/usuario-fo
 import { CambiarPasswordUserComponent } from './components/forms/cambiar-password-user/cambiar-password-user.component';
 import { UserInfoComponent } from './components/user/user-info/user-info.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
-import { ArticuloDetailRouteActivator } from './components/articulos/articulo-detail/articulo-detail-route-activator.service'
 import { Error404Component } from './errors/404.component';
 import { ListaUsuarioAdminComponent } from './components/usuarios/lista-usuario-admin/lista-usuario-admin.component';
 import { SitemapComponent } from './components/navigation/sitemap/sitemap.component';
@@ -19,7 +18,7 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent },
   { path: 'register', component: UsuarioFormComponent },
   { path: 'perfil', component: UserInfoComponent },
-  { path: 'articulos/:_id', component: ArticuloDetailComponent, canActivate: [ArticuloDetailRouteActivator] },
+  { path: 'articulos/:_id', component: ArticuloDetailComponent },
   { path: 'articulos', component: ArticuloComponent },
   { path: '404', component: Error404Component },
   { path: '', redirectTo: '/articulos', pathMatch: 'full' },
