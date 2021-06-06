@@ -47,18 +47,34 @@
                                 [(ngModel)]="articuloService.formArticulo.precio" />
                         </mdb-form-control>
                         <br>
-                        <div class="form-check">
-                            <input mdbCheckbox type="checkbox" id="existencias" class="form-check-input"
-                                [checked]="true" name="existencias"
-                                [(ngModel)]="articuloService.formArticulo.existencias" />
-                            <label class="form-check-label" for="existencias">Existencias</label>
+                        <div class="form-label">
+                            Existencias
+                            <div class="form-radio ml-5">
+                                <input mdbCheckbox type="radio" id="existenciasTrue" class="form-check-input" name="existencias" value="true"
+                                    [(ngModel)]="articuloService.formArticulo.existencias" />
+                                <label class="form-check-label" for="existencias">true</label>
+                            </div>
+                            
+                            <div class="form-radio ml-5">
+                                <input mdbCheckbox type="radio" id="existenciasFalse" class="form-check-input" name="existencias" value="false"
+                                    [(ngModel)]="articuloService.formArticulo.existencias" />
+                                <label class="form-check-label" for="existencias">false</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input mdbCheckbox type="checkbox" id="oferta" class="form-check-input" [checked]="true"
-                                name="oferta" [(ngModel)]="articuloService.formArticulo.oferta" />
-                            <label class="form-check-label" for="oferta">Oferta</label>
+                       <div class="form-label">
+                            Oferta
+                            <div class="form-radio ml-5">
+                                <input mdbCheckbox type="radio" id="ofertaTrue" class="form-check-input" name="oferta" value="true"
+                                    [(ngModel)]="articuloService.formArticulo.oferta" />
+                                <label class="form-check-label" for="oferta">true</label>
+                            </div>
+                            
+                            <div class="form-radio ml-5">
+                                <input mdbCheckbox type="radio" id="ofertaFalse" class="form-check-input" name="oferta" value="false"
+                                    [(ngModel)]="articuloService.formArticulo.oferta" />
+                                <label class="form-check-label" for="oferta">false</label>
+                            </div>
                         </div>
-
                         <div class="mt-2 p-2">
                             <button class="btn btn-success m-1" (click)="addArticulo(articuloForm)">
                                 Enviar

@@ -46,11 +46,20 @@
                                 [(ngModel)]="usuarioService.formUsuario.fecha" />
                         </mdb-form-control>
                         <br>
-                        <label mdbLabel class="form-label" for="apellido">Admin</label>
-                        <mdb-form-control>
-                            <input mdbInput type="text" id="admin" class="form-control" name="admin"
-                                [(ngModel)]="usuarioService.formUsuario.admin" />
-                        </mdb-form-control>
+                        <div class="form-label">
+                            Admin
+                            <div class="form-radio ml-5">
+                                <input mdbCheckbox type="radio" id="adminTrue" class="form-check-input" name="admin" value="true"
+                                    [(ngModel)]="usuarioService.formUsuario.admin" />
+                                <label class="form-check-label" for="admin">true</label>
+                            </div>
+                        
+                            <div class="form-radio ml-5">
+                                <input mdbCheckbox type="radio" id="adminFalse" class="form-check-input" name="admin" value="false"
+                                    [(ngModel)]="usuarioService.formUsuario.admin" />
+                                <label class="form-check-label" for="admin">false</label>
+                            </div>
+                        </div>
                         <br>
 
                         <div class="mt-2 p-2">
